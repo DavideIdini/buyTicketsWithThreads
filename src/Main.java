@@ -26,6 +26,7 @@ public class Main {
 
 
         System.out.println("ticket venduti "+sting.getTicketVenduti());
+        System.out.println("ticket non venduti "+sting.getTickinvenduti());
     }
     static class MyThread extends Thread{
 

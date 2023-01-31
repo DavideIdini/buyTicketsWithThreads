@@ -2,6 +2,7 @@ class Biglietti {
      volatile int nBiglietti = 100;
      volatile int venditoriOccupati = 0;
      int ticketVenduti=0;
+     int tickinvenduti=0;
     synchronized private void comprabiglietto(){
         if(nBiglietti>0){
                 nBiglietti--;
@@ -11,6 +12,7 @@ class Biglietti {
                 notifyAll();
         }
         else{
+            tickinvenduti++;
             System.out.println("i biglietti sono andati sold out");
             System.out.println("non sono riuscito a comprare"+Thread.currentThread().getName());
             venditoriOccupati--;
@@ -32,5 +34,9 @@ class Biglietti {
 
     public int getTicketVenduti() {
         return ticketVenduti;
+    }
+
+    public int getTickinvenduti() {
+        return tickinvenduti;
     }
 }
